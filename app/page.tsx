@@ -9,7 +9,7 @@ export default function Home() {
         <strong className="text-mint">22 de noviembre</strong>.
       </p>
       <a
-        href="mailto:studio222oficial@gmail.com"
+        href="mailto:info@studio222oficial.com"
         className="mt-10 rounded-full border border-green px-6 py-3 text-green transition hover:bg-green hover:text-deep-purple"
       >
         Escríbenos
