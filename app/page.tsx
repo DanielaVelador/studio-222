@@ -6,7 +6,7 @@ export default function Home() {
       </h1>
       <p className="mt-6 max-w-xl text-lg text-lavender md:text-xl">
         Estamos trabajando en algo nuevo. Espéranos el{" "}
-        <strong className="text-mint">22 de noviembre</strong>.
+        <strong className="text-mint">22/11</strong>.
       </p>
       <a
         href="mailto:info@studio222oficial.com"
