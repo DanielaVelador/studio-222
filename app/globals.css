@@ -36,6 +36,8 @@
   --chip: var(--bg);
   --nav: rgba(74, 29, 79, 0.92);
   --focus: #70f1ac;
+  --cta-bg: #c305d3;
+  --cta-fg: #ffffff;
 }
 
 /* ── Tema claro ── */
@@ -58,6 +60,8 @@
   --chip: var(--bg);
   --nav: rgba(207, 245, 224, 0.92);
   --focus: #c305d3;
+  --cta-bg: #4a1d4f;
+  --cta-fg: #cff5e0;
 }
 
 @theme inline {
@@ -427,5 +431,240 @@
     .btn {
       transition: none;
     }
+  }
+
+  /* Extras a la carta */
+  .pks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 210px));
+    justify-content: center;
+    gap: 1.4rem;
+  }
+
+  .pk {
+    position: relative;
+    aspect-ratio: 5 / 7;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    perspective: 900px;
+    font: inherit;
+    color: inherit;
+    transition: transform 0.25s;
+  }
+
+  .pk:nth-child(odd) {
+    transform: rotate(-1.5deg);
+  }
+
+  .pk:nth-child(even) {
+    transform: rotate(1.5deg);
+  }
+
+  .pk:hover {
+    transform: translateY(-8px) rotate(0);
+  }
+
+  .fl {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.3, 1.2, 0.5, 1);
+  }
+
+  .pk.on .fl {
+    transform: rotateY(180deg);
+  }
+
+  .cf {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: #fff;
+    color: #4a1d4f;
+    border: 2px solid #4a1d4f;
+    border-radius: 16px;
+    box-shadow: 0 4px 0 #4a1d4f;
+    display: grid;
+    place-items: center;
+    padding: 2rem 0.9rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .cf.bk {
+    transform: rotateY(180deg);
+  }
+
+  .cf svg {
+    color: var(--cc);
+  }
+
+  .cf .cr {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+  }
+
+  .cf .tl {
+    top: 10px;
+    left: 10px;
+  }
+
+  .cf .br {
+    bottom: 10px;
+    right: 10px;
+    transform: rotate(180deg);
+  }
+
+  .cf .big {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    opacity: 0.28;
+  }
+
+  .cf b {
+    position: relative;
+    font: 600 1.25rem / 1.2 var(--f-head);
+  }
+
+  .cf .dsc {
+    position: relative;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .fl,
+    .pk {
+      transition: none;
+    }
+  }
+
+  /* Portafolio */
+  .pf {
+    padding: 0;
+    overflow: hidden;
+    --c: var(--line);
+  }
+
+  .pf .art {
+    height: 150px;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .pf .art svg {
+    width: 76px;
+    height: 76px;
+    opacity: 0.9;
+  }
+
+  .pf .body {
+    padding: 1.3rem 1.4rem 1.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    font: 400 0.78rem var(--f-acc);
+    background: var(--chip);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.15rem 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .pf h3 {
+    font: 600 1.35rem var(--f-head);
+    margin: 0 0 0.4rem;
+  }
+
+  .pf p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Preguntas frecuentes */
+  .faq {
+    max-width: 760px;
+  }
+
+  .faq details {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .faq summary {
+    cursor: pointer;
+    font: 600 1.1rem var(--f-head);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq summary::after {
+    content: "+";
+    color: var(--heading);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .faq details[open] summary::after {
+    content: "–";
+  }
+
+  .faq details p {
+    margin: 0.7rem 0 0;
+    font-size: 0.92rem;
+  }
+
+  /* Bloque de contacto */
+  .cta {
+    background: var(--cta-bg);
+    color: var(--cta-fg);
+    text-align: center;
+    border-radius: 28px;
+    padding: 3.5rem 1.5rem;
+    margin: 1rem 0 3rem;
+  }
+
+  .cta h2 {
+    font: 700 clamp(1.7rem, 4vw, 2.5rem) / 1.15 var(--f-head);
+    margin: 0 auto 1rem;
+    max-width: 20ch;
+    color: #fff;
+  }
+
+  .cta p {
+    max-width: 44ch;
+    margin: 0 auto 1.8rem;
+  }
+
+  .cta .hl {
+    color: var(--mint);
+  }
+
+  .cta .btn {
+    background: var(--mint);
+    border-color: var(--mint);
+    color: var(--plum);
+  }
+
+  .cta .btn:hover {
+    background: transparent;
+    color: var(--mint);
   }
 }

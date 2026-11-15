@@ -75,3 +75,104 @@ export const servicios: Servicio[] = [
         ],
     },
 ];
+
+export type Extra = {
+    titulo: string;
+    descripcion: string;
+    color: string;
+};
+
+export const extras: Extra[] = [
+    {
+        titulo: "Invitaciones digitales",
+        descripcion:
+            "Invitaciones con tu estilo, listas para compartir por mensaje o redes.",
+        color: "#70F1AC",
+    },
+    {
+        titulo: "Adaptación de libro digital",
+        descripcion:
+            "Pasamos tu libro físico a formato digital, listo para pedirse en línea y descargarse.",
+        color: "#C305D3",
+    },
+    {
+        titulo: "Diseños individuales",
+        descripcion:
+            "Piezas sueltas (post, portada, flyer) para cuando necesitas algo puntual.",
+        color: "#D9B8F0",
+    },
+    {
+        titulo: "Capacitación",
+        descripcion:
+            "Te enseñamos a usar tus herramientas y tus redes para que no dependas de nadie.",
+        color: "#4A1D4F",
+    },
+];
+
+export type Proyecto = {
+    tipo: string;
+    nombre: string;
+    descripcion: string;
+    fondo: string;
+    texto: string;
+};
+
+export const proyectos: Proyecto[] = [
+    {
+        tipo: "Página de cotización rápida",
+        nombre: "Landing para Keki",
+        descripcion:
+            "Una página pensada para que los clientes pidan su cotización sin esperar mensajes. Ahorra tiempo al responder.",
+        fondo: "var(--mint)",
+        texto: "var(--plum)",
+    },
+    {
+        tipo: "Estudio de mercado",
+        nombre: "Fitness Manzanillo 2025",
+        descripcion:
+            "Hallazgos clave del mercado fitness de Manzanillo, en formato corto, para dueños de gimnasios y entrenadores.",
+        fondo: "var(--lila)",
+        texto: "var(--plum)",
+    },
+    {
+        tipo: "Campaña de lanzamiento",
+        nombre: "El trébol de Studio 222",
+        descripcion:
+            "Tréboles con QR y llaveros para que la gente encuentre el estudio, con video en Manzanillo y Colima.",
+        fondo: "var(--mag)",
+        texto: "#fff",
+    },
+];
+
+export type Pregunta = {
+    pregunta: string;
+    respuesta: string;
+};
+
+export const preguntas: Pregunta[] = [
+    {
+        pregunta: "¿Y si no sé qué necesito?",
+        respuesta:
+            "Cuéntanos cómo funciona tu negocio y qué quieres lograr. Te proponemos por dónde empezar.",
+    },
+    {
+        pregunta: "¿Trabajan con negocios pequeños?",
+        respuesta:
+            "Sí. Armamos soluciones que se ajustan a la etapa de tu negocio, desde una página sencilla hasta sistemas más completos.",
+    },
+    {
+        pregunta: "¿Cuánto cuesta un proyecto?",
+        respuesta:
+            "Depende de lo que necesites. Después de conocer tu caso, te enviamos una propuesta clara.",
+    },
+    {
+        pregunta: "¿Me enseñan a usar lo que construyen?",
+        respuesta:
+            "Sí. También ofrecemos asesorías y capacitaciones para que sepas usar y dar mantenimiento a tus herramientas.",
+    },
+    {
+        pregunta: "¿Cómo empiezo?",
+        respuesta:
+            "Presiona “Hablemos”, cuéntanos tu idea y te respondemos con los siguientes pasos.",
+    },
+];
