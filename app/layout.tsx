@@ -5,6 +5,7 @@ import "./globals.css";
 import ThemeProvider from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import CloverSprite from "./components/CloverSprite";
 
 const spaceMono = Space_Mono({
   variable: "--font-space-mono",
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
   },
 };
 
+// Aplica el tema guardado antes de pintar la página, para evitar el parpadeo
 const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t)}}catch(e){}`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -49,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
+          <CloverSprite />
           <Navbar />
           {children}
           <Footer />

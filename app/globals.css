@@ -262,4 +262,170 @@
     padding: 0.25rem 0.8rem;
     font-size: 0.8rem;
   }
+
+  /* Icono de trébol en las tarjetas */
+  .card h3 svg {
+    width: 26px;
+    height: 26px;
+    color: var(--c);
+    flex: none;
+  }
+
+  /* Estampas del hero */
+  .stage {
+    padding: 1rem 0 1.6rem;
+    max-width: 560px;
+    margin: 0 auto 1rem;
+  }
+
+  .stickers {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .hero .hint {
+    margin: 0 auto 2rem;
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .stk {
+    position: relative;
+    width: clamp(125px, 28vw, 200px);
+    aspect-ratio: 5 / 6;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    perspective: 900px;
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.4));
+    font: inherit;
+    color: inherit;
+    transition: transform 0.45s ease;
+  }
+
+  .s1 {
+    transform: rotate(2.5deg);
+    transform-origin: 100% 0;
+  }
+
+  .s1:hover {
+    transform: rotate(4.5deg);
+  }
+
+  .s2 {
+    transform: rotate(-7deg) translate(6px, 4px);
+    transform-origin: 0 0;
+    margin-left: 2px;
+  }
+
+  .s2:hover {
+    transform: rotate(-10deg) translate(8px, 4px);
+  }
+
+  .flip {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.3, 1.25, 0.5, 1);
+  }
+
+  .stk.on .flip {
+    transform: rotateY(180deg);
+  }
+
+  .face {
+    --g: transparent 7px, #000 7.6px;
+    --m: radial-gradient(circle at 50% 0, var(--g)),
+      radial-gradient(circle at 50% 100%, var(--g)),
+      radial-gradient(circle at 0 50%, var(--g)),
+      radial-gradient(circle at 100% 50%, var(--g));
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    text-align: center;
+    padding: 1.2rem;
+    -webkit-mask-image: var(--m);
+    mask-image: var(--m);
+    -webkit-mask-size: 24px 100%, 24px 100%, 100% 24px, 100% 24px;
+    mask-size: 24px 100%, 24px 100%, 100% 24px, 100% 24px;
+    -webkit-mask-repeat: round no-repeat, round no-repeat, no-repeat round,
+      no-repeat round;
+    mask-repeat: round no-repeat, round no-repeat, no-repeat round,
+      no-repeat round;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+
+  .face::before {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    border: 1.5px solid rgba(74, 29, 79, 0.3);
+    border-radius: 4px;
+  }
+
+  .face b.num {
+    position: relative;
+    font: 400 clamp(3.2rem, 10vw, 5.6rem) / 1 var(--f-acc);
+  }
+
+  .f1 {
+    background: var(--mint);
+    color: var(--plum);
+  }
+
+  .f2 {
+    background: var(--mag);
+    color: #fff;
+  }
+
+  .f2::before {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .back {
+    transform: rotateY(180deg);
+  }
+
+  .back svg {
+    position: relative;
+    width: 80%;
+    height: auto;
+  }
+
+  .b1 {
+    background: var(--mint-l);
+  }
+
+  .b2 {
+    background: var(--lila);
+  }
+
+  .who {
+    position: relative;
+    font: 600 clamp(0.58rem, 1.7vw, 0.82rem) var(--f-head);
+    white-space: nowrap;
+    color: var(--plum);
+  }
+
+  @media (max-width: 560px) {
+    .s2 {
+      margin-left: -28px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .flip,
+    .stk,
+    .btn {
+      transition: none;
+    }
+  }
 }

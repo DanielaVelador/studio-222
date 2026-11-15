@@ -1,24 +1,10 @@
+import Hero from "./components/Hero";
+import Servicios from "./components/Servicios";
+
 export default function Home() {
   return (
     <main className="wrap flex-1">
-      {/* Hero */}
-      <section className="hero" id="inicio">
-        <h1>
-          <span className="hl">Marketing &amp; Software</span> para crear
-          soluciones digitales
-        </h1>
-
-        {/* Siguiente paso: <Hero /> con las estampas 2 y 22 */}
-
-        <div className="ctas">
-          <a className="btn" href="#servicios">
-            Conoce nuestros servicios
-          </a>
-          <a className="btn alt" href="#contacto">
-            Hablemos
-          </a>
-        </div>
-      </section>
+      <Hero />
 
       {/* Servicios */}
       <section className="sec" id="servicios">
@@ -28,8 +14,10 @@ export default function Home() {
         <p className="lead">
           Elige lo que quieres lograr y te mostramos qué podemos hacer por ti.
         </p>
-        {/* Siguiente paso: <Servicios /> (6 categorías) y <Extras /> */}
+        <Servicios />
       </section>
+
+      {/* Extras a la carta — siguiente paso: <Extras /> */}
 
       {/* Proyectos (el id coincide con el enlace actual del Navbar) */}
       <section className="sec" id="proyectos">
