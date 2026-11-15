@@ -1,16 +1,76 @@
 @import "tailwindcss";
 
+/* ── Colores de marca (constantes) ── */
 :root {
-  --mint: #cff5e0;
-  --green: #70f1ac;
-  --lavender: #d9b8f0;
-  --magenta: #c305d3;
-  --deep-purple: #4a1d4f;
+  --mint: #70f1ac;
+  --mint-l: #cff5e0;
+  --lila: #d9b8f0;
+  --mag: #c305d3;
+  --plum: #4a1d4f;
+
+  --f-body: var(--font-space-mono), ui-monospace, monospace;
+  --f-head: var(--font-fredoka), system-ui, sans-serif;
+  /* Anak Baik (local); si no carga, usa Fredoka */
+  --f-acc: var(--font-anak-baik), var(--font-fredoka), system-ui, sans-serif;
+}
+
+/* ── Tema oscuro (por defecto) ── */
+:root,
+[data-theme="dark"] {
+  --bg: #4a1d4f;
+  --fg: #d9b8f0;
+  --heading: #70f1ac;
+  --accent: #cff5e0;
+  --highlight: #c305d3;
+  --btn-border: #70f1ac;
+  --btn-text: #70f1ac;
+  --btn-hover-bg: #70f1ac;
+  --btn-hover-text: #4a1d4f;
+  --toggle-bg: transparent;
+  --toggle-border: #d9b8f0;
+  --toggle-text: #d9b8f0;
+
+  /* Derivados de la misma paleta (para tarjetas, líneas y chips) */
+  --card: color-mix(in srgb, var(--fg) 9%, var(--bg));
+  --line: rgba(217, 184, 240, 0.28);
+  --chip: var(--bg);
+  --nav: rgba(74, 29, 79, 0.92);
+  --focus: #70f1ac;
+}
+
+/* ── Tema claro ── */
+[data-theme="light"] {
+  --bg: #cff5e0;
+  --fg: #4a1d4f;
+  --heading: #c305d3;
+  --accent: #4a1d4f;
+  --highlight: #70f1ac;
+  --btn-border: #c305d3;
+  --btn-text: #c305d3;
+  --btn-hover-bg: #c305d3;
+  --btn-hover-text: #cff5e0;
+  --toggle-bg: transparent;
+  --toggle-border: #4a1d4f;
+  --toggle-text: #4a1d4f;
+
+  --card: color-mix(in srgb, #ffffff 60%, var(--bg));
+  --line: rgba(74, 29, 79, 0.2);
+  --chip: var(--bg);
+  --nav: rgba(207, 245, 224, 0.92);
+  --focus: #c305d3;
 }
 
 @theme inline {
-  --color-background: var(--deep-purple);
-  --color-foreground: var(--lavender);
+  --color-theme-bg: var(--bg);
+  --color-theme-fg: var(--fg);
+  --color-theme-heading: var(--heading);
+  --color-theme-accent: var(--accent);
+  --color-theme-highlight: var(--highlight);
+  --color-theme-card: var(--card);
+  --color-theme-btn-border: var(--btn-border);
+  --color-theme-btn-text: var(--btn-text);
+  --color-theme-btn-hover-bg: var(--btn-hover-bg);
+  --color-theme-btn-hover-text: var(--btn-hover-text);
   --color-mint: #cff5e0;
   --color-green: #70f1ac;
   --color-lavender: #d9b8f0;
@@ -18,10 +78,188 @@
   --color-deep-purple: #4a1d4f;
   --font-sans: var(--font-space-mono);
   --font-mono: var(--font-space-mono);
+  --font-heading: var(--font-fredoka);
 }
 
-body {
-  background: var(--deep-purple);
-  color: var(--lavender);
-  font-family: var(--font-space-mono), monospace;
+/* ── Base ── */
+@layer base {
+  html {
+    scroll-padding-top: calc(76px + env(safe-area-inset-top, 0px));
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--f-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* ── Clases compartidas del prototipo ── */
+@layer components {
+  .wrap {
+    width: min(1100px, 100% - 2.5rem);
+    margin-inline: auto;
+  }
+
+  /* Botones */
+  .btn {
+    display: inline-block;
+    background: var(--mag);
+    color: #fff;
+    font: 600 1.02rem var(--f-head);
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 2px solid var(--mag);
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s, color 0.2s;
+  }
+
+  .btn:hover {
+    background: transparent;
+    color: var(--heading);
+    transform: translateY(-2px);
+  }
+
+  .btn.alt {
+    background: transparent;
+    color: var(--fg);
+    border-color: var(--fg);
+  }
+
+  .btn.alt:hover {
+    background: var(--mint);
+    border-color: var(--mint);
+    color: var(--plum);
+  }
+
+  .btn.sm {
+    padding: 0.45rem 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  /* Texto resaltado */
+  .hl {
+    font-family: var(--f-acc);
+    font-weight: 400;
+    color: var(--heading);
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 7.5rem 0 4.5rem;
+  }
+
+  .hero h1 {
+    font: 700 clamp(2rem, 5.6vw, 3.7rem) / 1.08 var(--f-head);
+    max-width: 19ch;
+    margin: 0 auto 1rem;
+  }
+
+  .ctas {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Secciones */
+  .sec {
+    padding: 4.5rem 0;
+  }
+
+  .sec h2 {
+    font: 700 clamp(1.8rem, 4vw, 2.6rem) / 1.12 var(--f-head);
+    margin: 0 0 0.6rem;
+    max-width: 22ch;
+  }
+
+  .lead {
+    max-width: 58ch;
+    margin: 0 0 2.2rem;
+  }
+
+  /* Tarjetas y chips */
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 1.2rem;
+  }
+
+  .card {
+    background: var(--card);
+    border: 2px solid var(--c);
+    border-radius: 20px;
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card:nth-child(3n + 1) {
+    --c: var(--mint);
+  }
+
+  .card:nth-child(3n + 2) {
+    --c: var(--lila);
+  }
+
+  .card:nth-child(3n + 3) {
+    --c: var(--mag);
+  }
+
+  .card h3 {
+    font: 600 1.4rem var(--f-head);
+    margin: 0 0 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card p {
+    margin: 0 0 1rem;
+    font-size: 0.92rem;
+    flex: 1;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+  }
+
+  .chips[hidden] {
+    display: none;
+  }
+
+  .chips li {
+    background: var(--chip);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }
