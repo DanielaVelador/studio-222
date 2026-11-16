@@ -6,6 +6,7 @@ import ThemeProvider from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CloverSprite from "./components/CloverSprite";
+import CloverTrail from "./components/CloverTrail";
 
 const spaceMono = Space_Mono({
   variable: "--font-space-mono",
@@ -19,6 +20,7 @@ const fredoka = Fredoka({
   weight: ["400", "500", "600", "700"],
 });
 
+// Anak Baik: archivo en app/fonts/ (cambia el nombre si el tuyo es distinto)
 const anakBaik = localFont({
   src: "./fonts/AnakBaik.woff2",
   variable: "--font-anak-baik",
@@ -52,6 +54,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
           <CloverSprite />
+          <CloverTrail />
           <Navbar />
           {children}
           <Footer />
