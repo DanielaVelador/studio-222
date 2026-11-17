@@ -294,38 +294,69 @@
     opacity: 0.8;
   }
 
-  .stk {
+  /* Tira de estampas: dos estampas unidas por su borde perforado.
+     .slot es la caja fija que recibe el hover; .stk es la estampa que se mueve. */
+  .slot {
     position: relative;
     width: clamp(125px, 28vw, 200px);
     aspect-ratio: 5 / 6;
+  }
+
+  .slot:hover,
+  .slot:has(.stk:focus-visible),
+  .slot:has(.stk:active) {
+    z-index: 2;
+  }
+
+  .s1 {
+    --dir: -1;
+    /* se desprende hacia la izquierda */
+  }
+
+  .s2 {
+    --dir: 1;
+    /* se desprende hacia la derecha */
+  }
+
+  .stk {
+    --tear: cubic-bezier(0.55, 0, 0.25, 1);
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     padding: 0;
     border: 0;
     background: none;
     cursor: pointer;
     perspective: 900px;
-    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.4));
+    /* solo para el volteo del reverso */
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.35));
     font: inherit;
     color: inherit;
-    transition: transform 0.45s ease;
+    rotate: 0deg;
+    transition: rotate 0.7s var(--tear);
   }
 
-  .s1 {
-    transform: rotate(2.5deg);
-    transform-origin: 100% 0;
+  /* Punto de unión: la esquina inferior que toca a la estampa vecina */
+  .s1 .stk {
+    transform-origin: 100% 100%;
   }
 
-  .s1:hover {
-    transform: rotate(4.5deg);
+  .s2 .stk {
+    transform-origin: 0 100%;
   }
 
-  .s2 {
-    transform: rotate(-7deg) translate(6px, 4px);
-    transform-origin: 0 0;
-    margin-left: 2px;
+  /* Al pasar el cursor: la estampa se separa de la tira hacia su lado,
+     en el mismo plano, girando sobre la esquina que sigue unida */
+  @media (hover: hover) and (pointer: fine) {
+    .slot:hover .stk {
+      rotate: calc(var(--dir) * 7deg);
+    }
   }
 
-  .s2:hover {
-    transform: rotate(-10deg) translate(8px, 4px);
+  .slot .stk:focus-visible,
+  .slot .stk:active {
+    rotate: calc(var(--dir) * 7deg);
   }
 
   .flip {
@@ -416,12 +447,6 @@
     font: 600 clamp(0.58rem, 1.7vw, 0.82rem) var(--f-head);
     white-space: nowrap;
     color: var(--plum);
-  }
-
-  @media (max-width: 560px) {
-    .s2 {
-      margin-left: -28px;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {

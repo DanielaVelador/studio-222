@@ -422,23 +422,25 @@ function Sticker({ numero, etiqueta, clase, frente, reverso, usuario, avatar }: 
     const [volteada, setVolteada] = useState(false);
 
     return (
-        <button
-            type="button"
-            className={`stk ${clase}${volteada ? " on" : ""}`}
-            aria-pressed={volteada}
-            aria-label={etiqueta}
-            onClick={() => setVolteada((v) => !v)}
-        >
-            <span className="flip">
-                <span className={`face ${frente}`}>
-                    <b className="num">{numero}</b>
+        <div className={`slot ${clase}`}>
+            <button
+                type="button"
+                className={`stk${volteada ? " on" : ""}`}
+                aria-pressed={volteada}
+                aria-label={etiqueta}
+                onClick={() => setVolteada((v) => !v)}
+            >
+                <span className="flip">
+                    <span className={`face ${frente}`}>
+                        <b className="num">{numero}</b>
+                    </span>
+                    <span className={`face back ${reverso}`}>
+                        {avatar}
+                        <span className="who">{usuario}</span>
+                    </span>
                 </span>
-                <span className={`face back ${reverso}`}>
-                    {avatar}
-                    <span className="who">{usuario}</span>
-                </span>
-            </span>
-        </button>
+            </button>
+        </div>
     );
 }
 
