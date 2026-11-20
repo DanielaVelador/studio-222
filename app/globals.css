@@ -906,6 +906,201 @@
       text-align: center;
     }
   }
+
+  /* Formulario de contacto (dentro del bloque .cta) */
+  .cta-form {
+    max-width: 640px;
+    margin: 2rem auto 0;
+    text-align: left;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .cta-form p {
+    max-width: none;
+    margin: 0;
+  }
+
+  .f-row {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  }
+
+  .f-field label,
+  .f-group legend {
+    display: block;
+    font: 600 1.02rem var(--f-head);
+    margin: 0 0 0.45rem;
+    padding: 0;
+  }
+
+  .f-group {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .cta-form .f-hint {
+    font-size: 0.82rem;
+    opacity: 0.9;
+    margin: 0 0 0.5rem;
+  }
+
+  .f-input {
+    box-sizing: border-box;
+    width: 100%;
+    background: var(--mint-l);
+    color: var(--plum);
+    border: 2px solid transparent;
+    border-radius: 14px;
+    padding: 0.75rem 0.95rem;
+    font: 400 1rem var(--f-body);
+  }
+
+  .f-input::placeholder {
+    color: color-mix(in srgb, var(--plum) 70%, var(--mint-l));
+  }
+
+  textarea.f-input {
+    resize: vertical;
+    min-height: 7.5rem;
+    line-height: 1.5;
+  }
+
+  .f-input:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+  }
+
+  .f-input[aria-invalid="true"] {
+    border-color: #ff8f7e;
+  }
+
+  .cta-form .f-error {
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 700;
+    margin: 0.45rem 0 0;
+  }
+
+  .f-error::before {
+    content: "⚠ ";
+  }
+
+  .cta-form .f-alerta {
+    background: rgba(0, 0, 0, 0.25);
+    border: 2px solid #fff;
+    border-radius: 14px;
+    padding: 0.8rem 1rem;
+    font-weight: 700;
+  }
+
+  /* Opciones en forma de pastilla (radio y casillas) */
+  .f-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .f-chip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .f-chip input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .f-chip span {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    border: 2px solid var(--cta-fg);
+    border-radius: 999px;
+    font: 600 0.95rem var(--f-head);
+    color: var(--cta-fg);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .f-chip:hover span {
+    border-color: var(--mint);
+  }
+
+  .f-chip input:checked+span {
+    background: var(--mint);
+    border-color: var(--mint);
+    color: var(--plum);
+  }
+
+  .f-chip input:focus-visible+span {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+  }
+
+  /* Trampa para bots (fuera de la vista) */
+  .f-trampa {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .f-enviar {
+    justify-self: center;
+    margin-top: 0.4rem;
+  }
+
+  .f-enviar:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+  }
+
+  .cta-form .f-nota {
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.85;
+  }
+
+  /* Mensaje de agradecimiento y enlace alterno */
+  .f-ok {
+    max-width: 560px;
+    margin: 2rem auto 0;
+    background: rgba(255, 255, 255, 0.14);
+    border: 2px solid var(--mint);
+    border-radius: 20px;
+    padding: 1.6rem 1.4rem;
+  }
+
+  .f-ok h3 {
+    font: 700 1.6rem var(--f-head);
+    color: #fff;
+    margin: 0 0 0.4rem;
+  }
+
+  .cta .f-ok p {
+    margin: 0 auto;
+    max-width: 44ch;
+  }
+
+  .cta .cta-alt {
+    margin: 1.8rem auto 0;
+    font-size: 0.9rem;
+  }
+
+  .cta .cta-alt a {
+    color: var(--mint);
+    text-decoration: underline;
+    font-weight: 700;
+  }
 }
 
 @keyframes clover-pop {

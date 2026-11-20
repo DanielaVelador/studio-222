@@ -1,3 +1,5 @@
+import ContactForm from "./ContactForm";
+
 export default function Cta() {
     return (
         <section className="cta" id="contacto">
@@ -7,12 +9,13 @@ export default function Cta() {
                 <span className="hl">De 2 a 22 horas hábiles</span> contestamos tu
                 mensaje.
             </p>
-            <a
-                className="btn"
-                href="mailto:info@studio222oficial.com?subject=Quiero%20hablar%20de%20mi%20proyecto"
-            >
-                Hablemos de tu proyecto
-            </a>
+
+            <ContactForm />
+
+            <p className="cta-alt">
+                ¿Prefieres escribirnos directo?{" "}
+                <a href="mailto:info@studio222oficial.com">info@studio222oficial.com</a>
+            </p>
         </section>
     );
 }
