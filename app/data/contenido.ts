@@ -135,8 +135,8 @@ export const proyectos: Proyecto[] = [
         texto: "var(--plum)",
     },
     {
-        tipo: "Campaña de lanzamiento",
-        nombre: "El trébol de Studio 222",
+        tipo: "Identidad de marca",
+        nombre: "Studio 222",
         descripcion:
             "Tréboles con QR y llaveros para que la gente encuentre el estudio, con video en Manzanillo y Colima.",
         fondo: "var(--mag)",

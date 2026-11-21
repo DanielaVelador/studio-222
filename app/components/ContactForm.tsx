@@ -49,9 +49,9 @@ export default function ContactForm() {
             {/* Nombre y proyecto */}
             <div className="f-row">
                 <div className="f-field">
-                    <label htmlFor="nombre">¿Cómo te llamas?</label>
+                    <label htmlFor="f-nombre">¿Cómo te llamas?</label>
                     <input
-                        id="nombre"
+                        id="f-nombre"
                         name="nombre"
                         className="f-input"
                         type="text"
@@ -60,19 +60,19 @@ export default function ContactForm() {
                         required
                         defaultValue={v?.nombre}
                         aria-invalid={!!errores.nombre}
-                        aria-describedby={errores.nombre ? "nombre-error" : undefined}
+                        aria-describedby={errores.nombre ? "f-nombre-error" : undefined}
                     />
                     {errores.nombre && (
-                        <p className="f-error" id="nombre-error">
+                        <p className="f-error" id="f-nombre-error">
                             {errores.nombre}
                         </p>
                     )}
                 </div>
 
                 <div className="f-field">
-                    <label htmlFor="proyecto">¿Cómo se llama tu proyecto o marca?</label>
+                    <label htmlFor="f-proyecto">¿Cómo se llama tu proyecto o marca?</label>
                     <input
-                        id="proyecto"
+                        id="f-proyecto"
                         name="proyecto"
                         className="f-input"
                         type="text"
@@ -81,10 +81,10 @@ export default function ContactForm() {
                         required
                         defaultValue={v?.proyecto}
                         aria-invalid={!!errores.proyecto}
-                        aria-describedby={errores.proyecto ? "proyecto-error" : undefined}
+                        aria-describedby={errores.proyecto ? "f-proyecto-error" : undefined}
                     />
                     {errores.proyecto && (
-                        <p className="f-error" id="proyecto-error">
+                        <p className="f-error" id="f-proyecto-error">
                             {errores.proyecto}
                         </p>
                     )}
@@ -111,10 +111,10 @@ export default function ContactForm() {
             </fieldset>
 
             <div className="f-field">
-                <label htmlFor="contacto">{cfg.etiqueta}</label>
+                <label htmlFor="f-contacto">{cfg.etiqueta}</label>
                 <input
                     key={medio}
-                    id="contacto"
+                    id="f-contacto"
                     name="contacto"
                     className="f-input"
                     type={cfg.type}
@@ -125,10 +125,10 @@ export default function ContactForm() {
                     required
                     defaultValue={v?.medio === medio ? v.contacto : ""}
                     aria-invalid={!!errores.contacto}
-                    aria-describedby={errores.contacto ? "contacto-error" : undefined}
+                    aria-describedby={errores.contacto ? "f-contacto-error" : undefined}
                 />
                 {errores.contacto && (
-                    <p className="f-error" id="contacto-error">
+                    <p className="f-error" id="f-contacto-error">
                         {errores.contacto}
                     </p>
                 )}
@@ -136,7 +136,7 @@ export default function ContactForm() {
 
             {/* Dónde ver lo que hace hoy */}
             <div className="f-field">
-                <label htmlFor="enlace">
+                <label htmlFor="f-enlace">
                     ¿Dónde podemos stalkear un poco lo que haces actualmente?
                 </label>
                 <p className="f-hint">
@@ -144,7 +144,7 @@ export default function ContactForm() {
                     déjalo vacío.
                 </p>
                 <input
-                    id="enlace"
+                    id="f-enlace"
                     name="enlace"
                     className="f-input"
                     type="text"
@@ -159,7 +159,7 @@ export default function ContactForm() {
                 <legend>¿Qué reto o necesidad quieres resolver con nosotros hoy?</legend>
                 <div
                     className="f-chips"
-                    aria-describedby={errores.retos ? "retos-error" : undefined}
+                    aria-describedby={errores.retos ? "f-retos-error" : undefined}
                 >
                     {RETOS.map((r) => (
                         <label key={r} className="f-chip">
@@ -174,7 +174,7 @@ export default function ContactForm() {
                     ))}
                 </div>
                 {errores.retos && (
-                    <p className="f-error" id="retos-error">
+                    <p className="f-error" id="f-retos-error">
                         {errores.retos}
                     </p>
                 )}
@@ -182,9 +182,9 @@ export default function ContactForm() {
 
             {/* Detalles */}
             <div className="f-field">
-                <label htmlFor="detalles">Platícanos un poco más sobre el proyecto</label>
+                <label htmlFor="f-detalles">Platícanos un poco más sobre el proyecto</label>
                 <textarea
-                    id="detalles"
+                    id="f-detalles"
                     name="detalles"
                     className="f-input"
                     rows={5}

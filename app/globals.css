@@ -42,7 +42,7 @@
 
 /* ── Tema claro ── */
 [data-theme="light"] {
-  --bg: #cff5e0;
+  --bg: #f3fdf8;
   --fg: #4a1d4f;
   --heading: #c305d3;
   --accent: #4a1d4f;
@@ -50,15 +50,15 @@
   --btn-border: #c305d3;
   --btn-text: #c305d3;
   --btn-hover-bg: #c305d3;
-  --btn-hover-text: #cff5e0;
+  --btn-hover-text: var(--bg);
   --toggle-bg: transparent;
   --toggle-border: #4a1d4f;
   --toggle-text: #4a1d4f;
 
-  --card: color-mix(in srgb, #ffffff 60%, var(--bg));
+  --card: #ffffff;
   --line: rgba(74, 29, 79, 0.2);
-  --chip: var(--bg);
-  --nav: rgba(207, 245, 224, 0.92);
+  --chip: var(--mint-l);
+  --nav: color-mix(in srgb, var(--bg) 92%, transparent);
   --focus: #c305d3;
   --cta-bg: #4a1d4f;
   --cta-fg: #cff5e0;
