@@ -1,19 +1,57 @@
+import Hero from "./components/Hero";
+import Servicios from "./components/Servicios";
+import Extras from "./components/Extras";
+import Portafolio from "./components/Portafolio";
+import Faq from "./components/Faq";
+import Cta from "./components/Cta";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-deep-purple px-6 text-center text-lavender">
-      <h1 className="text-5xl font-bold tracking-tight text-green md:text-7xl">
-        Studio 222
-      </h1>
-      <p className="mt-6 max-w-xl text-lg text-lavender md:text-xl">
-        Estamos trabajando en algo nuevo. Espéranos el{" "}
-        <strong className="text-mint">22 de noviembre</strong>.
-      </p>
-      <a
-        href="mailto:studio222oficial@gmail.com"
-        className="mt-10 rounded-full border border-green px-6 py-3 text-green transition hover:bg-green hover:text-deep-purple"
-      >
-        Escríbenos
-      </a>
+    <main className="wrap flex-1">
+      <Hero />
+
+      {/* Servicios */}
+      <section className="sec" id="servicios">
+        <h2>
+          Soluciones para <span className="hl">hacer crecer tu negocio</span>
+        </h2>
+        <p className="lead">
+          Elige lo que quieres lograr y te mostramos qué podemos hacer por ti.
+        </p>
+        <Servicios />
+      </section>
+
+      {/* Extras a la carta */}
+      <section className="sec" id="extras">
+        <h2>
+          <span className="hl">Extras a la carta</span>
+        </h2>
+        <p className="lead">
+          Piezas sueltas para cuando necesitas algo puntual. Toca una carta
+          para ver de qué trata.
+        </p>
+        <Extras />
+      </section>
+
+      {/* Proyectos (el id coincide con el enlace actual del Navbar) */}
+      <section className="sec" id="proyectos">
+        <h2>
+          Proyectos que{" "}
+          <span className="hl">convierten ideas en soluciones</span>
+        </h2>
+        <p className="lead">Algunos de los proyectos en los que hemos trabajado.</p>
+        <Portafolio />
+      </section>
+
+      {/* Preguntas frecuentes */}
+      <section className="sec" id="faq">
+        <h2>Preguntas frecuentes</h2>
+        <p className="lead">Lo que más nos preguntan antes de empezar.</p>
+        <Faq />
+      </section>
+
+      {/* Contacto */}
+      <Cta />
     </main>
   );
 }
