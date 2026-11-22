@@ -138,7 +138,7 @@ export const proyectos: Proyecto[] = [
         tipo: "Identidad de marca",
         nombre: "Studio 222",
         descripcion:
-            "Tréboles con QR y llaveros para que la gente encuentre el estudio, con video en Manzanillo y Colima.",
+            "Identidad visual para una agencia de marketing + software: logo de trébol, paleta menta y magenta, y tipografías con personalidad.",
         fondo: "var(--mag)",
         texto: "#fff",
     },
