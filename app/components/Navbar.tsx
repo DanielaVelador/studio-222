@@ -6,10 +6,10 @@ import Clover from "./Clover";
 import { useTheme } from "./ThemeProvider";
 
 const enlaces = [
-  { etiqueta: "Servicios", href: "#servicios" },
-  { etiqueta: "Portafolio", href: "#proyectos" },
-  { etiqueta: "Preguntas frecuentes", href: "#faq" },
-  { etiqueta: "Contacto", href: "#contacto" },
+  { etiqueta: "Servicios", href: "/#servicios" },
+  { etiqueta: "Portafolio", href: "/#proyectos" },
+  { etiqueta: "Preguntas frecuentes", href: "/#faq" },
+  { etiqueta: "Contacto", href: "/#contacto" },
 ];
 
 // Secciones que se observan para resaltar el enlace activo
@@ -55,9 +55,9 @@ export default function Navbar() {
   return (
     <header className="nav">
       <div className="wrap nav-row">
-        <a className="brand" href="#inicio" onClick={() => irA("inicio")}>
+        <a className="brand" href="/#inicio" onClick={() => irA("inicio")}>
           <Image
-            src="/logo.svg"
+            src="/logostudio222.ico"
             alt=""
             width={40}
             height={40}
@@ -69,7 +69,7 @@ export default function Navbar() {
         <div className={`menu${abierto ? " open" : ""}`} id="menu">
           <ul>
             {enlaces.map(({ etiqueta, href }) => {
-              const id = href.slice(1);
+              const id = href.split("#")[1];
               const esActivo = activo === id;
               return (
                 <li key={href}>
@@ -88,7 +88,7 @@ export default function Navbar() {
           {/* Botón dentro del panel (solo en móvil) */}
           <a
             className="btn sm menu-cta"
-            href="#contacto"
+            href="/#contacto"
             onClick={() => irA("contacto")}
           >
             <Clover className="ni" size={18} />
@@ -151,7 +151,7 @@ export default function Navbar() {
           {/* Botón en la barra (solo en escritorio) */}
           <a
             className="btn sm nav-cta"
-            href="#contacto"
+            href="/#contacto"
             onClick={() => irA("contacto")}
           >
             <Clover className="ni" size={18} />
