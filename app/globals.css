@@ -666,6 +666,7 @@
     margin: 1rem 0 3rem;
   }
 
+  .cta h1,
   .cta h2 {
     font: 700 clamp(1.7rem, 4vw, 2.5rem) / 1.15 var(--f-head);
     margin: 0 auto 1rem;
@@ -1101,6 +1102,185 @@
     text-decoration: underline;
     font-weight: 700;
   }
+
+  /* Botón "Comenzar" del bloque de contacto de la página principal */
+  .cta .cta-comenzar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.3rem;
+    padding: 1rem 2.3rem;
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.28);
+  }
+
+  .cta .cta-comenzar:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 transparent;
+  }
+
+  .cta-comenzar .ni {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    vertical-align: baseline;
+  }
+
+  .cta-comenzar .flecha {
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  .cta-comenzar:hover .flecha {
+    transform: translateX(6px);
+  }
+
+  /* Página del formulario */
+  .pagina-form {
+    padding-top: 7rem;
+    padding-bottom: 1rem;
+  }
+
+  .cta-top {
+    max-width: 640px;
+    margin: 0 auto 1.4rem;
+    text-align: left;
+  }
+
+  .cta .volver {
+    display: inline-block;
+    font: 600 0.95rem var(--f-head);
+    color: var(--cta-fg);
+    text-decoration: none;
+    padding: 0.3rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .cta .volver:hover {
+    border-bottom-color: var(--mint);
+  }
+
+  .cta .f-volver {
+    margin-top: 1.2rem;
+  }
+
+  /* Formulario paso a paso */
+  .form-pasos {
+    gap: 1.6rem;
+  }
+
+  .prog {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .cta-form .prog-texto {
+    font: 600 0.95rem var(--f-head);
+    letter-spacing: 0.02em;
+  }
+
+  .prog-barra {
+    height: 8px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--cta-fg) 25%, transparent);
+  }
+
+  .prog-barra span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--mint);
+    transition: width 0.4s cubic-bezier(0.3, 0, 0.2, 1);
+  }
+
+  .paso {
+    min-height: 9.5rem;
+  }
+
+  .paso[hidden] {
+    display: none;
+  }
+
+  .paso:focus {
+    outline: none;
+  }
+
+  .paso:not([hidden]) {
+    animation: paso-adelante 0.35s cubic-bezier(0.3, 0, 0.2, 1) both;
+  }
+
+  .form-pasos[data-dir="atras"] .paso:not([hidden]) {
+    animation-name: paso-atras;
+  }
+
+  .form-pasos .f-field label,
+  .form-pasos .f-group legend {
+    font-size: clamp(1.25rem, 3.6vw, 1.7rem);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .f-field-sig {
+    margin-top: 1.5rem;
+  }
+
+  /* Botones de navegación entre preguntas */
+  .paso-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+  }
+
+  .paso-nav .btn {
+    min-width: 9.5rem;
+  }
+
+  .paso-nav .btn:first-child:not(:last-child) {
+    margin-right: auto;
+  }
+
+  .paso-nav .btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+  }
+
+  .cta .btn.alt {
+    background: transparent;
+    color: var(--cta-fg);
+    border-color: var(--cta-fg);
+  }
+
+  .cta .btn.alt:hover {
+    background: var(--cta-fg);
+    border-color: var(--cta-fg);
+    color: var(--cta-bg);
+  }
+
+  @media (max-width: 560px) {
+    .paso-nav .btn {
+      flex: 1;
+      min-width: 0;
+      padding-inline: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .paso-nav .btn:first-child:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .paso:not([hidden]) {
+      animation: none;
+    }
+
+    .prog-barra span,
+    .cta-comenzar .flecha {
+      transition: none;
+    }
+  }
 }
 
 @keyframes clover-pop {
@@ -1112,5 +1292,29 @@
   100% {
     transform: scale(1.35) rotate(40deg);
     opacity: 0;
+  }
+}
+
+@keyframes paso-adelante {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes paso-atras {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

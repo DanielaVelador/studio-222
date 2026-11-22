@@ -1,4 +1,5 @@
-import ContactForm from "./ContactForm";
+import Link from "next/link";
+import Clover from "./Clover";
 
 export default function Cta() {
     return (
@@ -10,7 +11,10 @@ export default function Cta() {
                 mensaje.
             </p>
 
-            <ContactForm />
+            <Link className="btn cta-comenzar" href="/contacto">
+                <Clover className="ni" size={24} />
+                Comenzar <span className="flecha" aria-hidden="true">→</span>
+            </Link>
 
             <p className="cta-alt">
                 ¿Prefieres escribirnos directo?{" "}
