@@ -36,8 +36,12 @@
   --chip: var(--bg);
   --nav: rgba(74, 29, 79, 0.92);
   --focus: #70f1ac;
-  --cta-bg: #c305d3;
-  --cta-fg: #ffffff;
+  /* Bloque de contacto: ciruela suave (el fondo con un poco de lavanda) */
+  --cta-bg: color-mix(in srgb, var(--fg) 14%, var(--bg));
+  --cta-fg: var(--fg);
+  --cta-title: var(--accent);
+  --cta-error: #ffb4a8;
+  --cta-borde: var(--line);
 }
 
 /* ── Tema claro ── */
@@ -62,6 +66,9 @@
   --focus: #c305d3;
   --cta-bg: #4a1d4f;
   --cta-fg: #cff5e0;
+  --cta-title: #ffffff;
+  --cta-error: #ffffff;
+  --cta-borde: transparent;
 }
 
 @theme inline {
@@ -660,6 +667,7 @@
   .cta {
     background: var(--cta-bg);
     color: var(--cta-fg);
+    box-shadow: inset 0 0 0 2px var(--cta-borde);
     text-align: center;
     border-radius: 28px;
     padding: 3.5rem 1.5rem;
@@ -671,7 +679,7 @@
     font: 700 clamp(1.7rem, 4vw, 2.5rem) / 1.15 var(--f-head);
     margin: 0 auto 1rem;
     max-width: 20ch;
-    color: #fff;
+    color: var(--cta-title);
   }
 
   .cta p {
@@ -980,7 +988,7 @@
   }
 
   .cta-form .f-error {
-    color: #fff;
+    color: var(--cta-error);
     font-size: 0.86rem;
     font-weight: 700;
     margin: 0.45rem 0 0;
@@ -992,7 +1000,7 @@
 
   .cta-form .f-alerta {
     background: rgba(0, 0, 0, 0.25);
-    border: 2px solid #fff;
+    border: 2px solid var(--cta-error);
     border-radius: 14px;
     padding: 0.8rem 1rem;
     font-weight: 700;
@@ -1083,7 +1091,7 @@
 
   .f-ok h3 {
     font: 700 1.6rem var(--f-head);
-    color: #fff;
+    color: var(--cta-title);
     margin: 0 0 0.4rem;
   }
 
